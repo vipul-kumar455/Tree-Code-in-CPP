@@ -1,0 +1,28 @@
+
+
+
+//Function to find the lowest common ancestor in a BST. 
+Node* LCA(Node *root, int p, int q)
+{
+   //Your code here
+   
+   if(root==NULL)
+        return NULL;
+        if(root->data==p || root->data==q)
+        return root;
+        Node* leftans=LCA(root->left,p,q);
+        Node* righttans=LCA(root->right,p,q);
+                if(leftans!=NULL && righttans!=NULL)
+                {
+                    return root;
+
+                }
+                else if(leftans!=NULL && righttans==NULL)
+                return leftans;
+                else if(leftans==NULL && righttans!=NULL)
+                return righttans;
+                else
+                return NULL;
+                return root;
+}
+
